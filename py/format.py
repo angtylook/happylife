@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#!/usr/bin/env python3
 
 '''
 format c/cpp files in directory
@@ -27,4 +27,6 @@ if __name__ == '__main__':
                         format(src_file)
         else:
             print("skip: " + arg)    
+    print(__doc__)
+
 
