@@ -1,0 +1,14 @@
+[Unit]
+Description=Demo Service
+
+[Service]
+Type=oneshot
+PIDFile=/var/run/demo.pid
+ExecStart=ls -alh
+TimeoutSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target.wants
+
+
