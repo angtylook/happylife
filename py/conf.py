@@ -32,6 +32,8 @@ def HandleRegion(args, region):
 
 def HandleEnv(args, region, env):
 	cfgFile = os.path.join(args.dir, region, env, args.file)
+	if not os.path.exists(cfgFile):
+		return
 	print("handle file {}".format(cfgFile))
 	config = configparser.ConfigParser()
 	config.optionxform = lambda option: option
