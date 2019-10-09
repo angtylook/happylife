@@ -106,3 +106,9 @@ TabWidth:        4
 UseTab:          Never
 ...
 
+---
+Language: Proto
+BasedOnStyle: Chromium
+ColumnLimit: 120
+IndentWidth: 4
+AlignConsecutiveAssignments: true
