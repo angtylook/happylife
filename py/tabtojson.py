@@ -1,3 +1,6 @@
+#!/usr/local/bin/python3
+#encoding=utf-8
+
 import json
 import csv
 import argparse
@@ -10,6 +13,7 @@ def parseArgs():
     parser.add_argument("-o", "--json", dest="jsonfile", help="path to json file")
     parser.add_argument("-m", "--meta", dest="metafile", help="path to meta file")
     parser.add_argument("-s", "--skip", dest="skip", help="skip key with tag")
+    parser.add_argument("-c", "--cfg", dest="cfg", help="only use first row as ini")
     opts = parser.parse_args()
     if opts.jsonfile == None:
         opts.jsonfile = pathlib.Path(opts.csvfile).with_suffix(".json")
@@ -42,6 +46,8 @@ def processValue(val, d, opts):
         if "sep" in d:
             sep = d["sep"]
         return val.split(sep)
+    if d["dt"] == "bool":
+        return int(val) > 0
     return val
 
 def processRow(row, meta, opts):
@@ -77,8 +83,12 @@ def convert(opts):
             row = processRow(row, meta, opts)
         # print(row)
         data.append(row)
+        # skip others use as ini file
+        if opts.cfg != None:
+            data = row
+            break
     # print(data)
-    json.dump(data, open(opts.jsonfile, mode="w"), indent=2)
+    json.dump(data, open(opts.jsonfile, mode="w", encoding='utf-8'), ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
     opts = parseArgs()
