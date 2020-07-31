@@ -53,6 +53,9 @@ def processValue(val, d, opts):
 def processRow(row, meta, opts):
     skips = []
     for k in row.keys():
+        if k == None or k == "":
+            skips.append(k)
+            continue
         if k in meta:
             if opts.skip != None and "tag" in meta[k] and meta[k]["tag"] == opts.skip:
                 skips.append(k)
