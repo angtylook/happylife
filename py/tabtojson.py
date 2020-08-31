@@ -17,7 +17,7 @@ def parseArgs():
     parser.add_argument("-m", "--meta", dest="metafile",
                         help="path to meta file")
     parser.add_argument("-s", "--skip", dest="skip", help="skip key with tag")
-    parser.add_argument("-c", "--cfg", dest="cfg",
+    parser.add_argument("-c", "--ini", dest="ini",
                         help="only use first row as ini")
     opts = parser.parse_args()
     if opts.jsonfile == None:
@@ -195,7 +195,7 @@ def convert(opts):
         # print(row)
         data.append(row)
         # skip others use as ini file
-        if opts.cfg != None:
+        if opts.ini != None:
             data = row
             break
     # print(data)
