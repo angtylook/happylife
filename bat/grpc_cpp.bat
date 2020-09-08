@@ -1,0 +1,2 @@
+"D:/devtools/vcpkg/installed/x86-windows/tools/protobuf/protoc.exe" -I %1 --grpc_out=%2 --plugin=protoc-gen-grpc="D:/devtools/vcpkg/installed/x86-windows/tools/grpc/grpc_cpp_plugin.exe" %3
+"D:/devtools/vcpkg/installed/x86-windows/tools/protobuf/protoc.exe" -I %1 --cpp_out=%2 %3
