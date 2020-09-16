@@ -1,2 +1,2 @@
-pandoc -N -s --toc -f markdown+smart --pdf-engine=xelatex --highlight-style kate -V CJKmainfont="ËÎÌå" -V mainfont=Consolas -V geometry:margin=1in ${1} -o ${2}
+pandoc -N -s --toc -f markdown+smart --pdf-engine=xelatex --highlight-style kate -V CJKmainfont="å®‹ä½“" -V mainfont=Consolas -V geometry:margin=1in ${1} -o ${2}
 
